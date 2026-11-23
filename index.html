@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Cinematographer · Director of Photography</title>
+  <meta name="description" content="Cinematographer and Director of Photography portfolio: showreel, selected films, cinema stills and camera package.">
+  <meta name="theme-color" content="#0A0A0C">
+  <meta property="og:title" content="Cinematographer · Director of Photography">
+  <meta property="og:description" content="Showreel, selected films, stills and production inquiries.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://img.youtube.com">
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2308080A'/%3E%3Crect x='1' y='11' width='30' height='10' fill='none' stroke='%23D4AF37' stroke-width='2'/%3E%3C/svg%3E">
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <noscript><style>.preloader{display:none}</style></noscript>
+</head>
+<body>
+  <!-- Timecode slate + letterbox curtain -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="curtain top"></div><div class="curtain bottom"></div>
+    <div class="slate">
+      <div class="rec"><i></i> REC · <span id="preName"></span></div>
+      <div class="tc"><span id="tc">00:00:00:00</span><span class="fps">— 24 FPS</span></div>
+      <div class="pre-line"><i id="preProg"></i></div>
+    </div>
+  </div>
+  <!-- Viewfinder cursor (desktop, pointer: fine) -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor-badge"><i class="t t1"></i><i class="t t2"></i><i class="t t3"></i><i class="t t4"></i><span id="cursorLabel"></span></div>
+  </div>
+
+  <a class="skip" href="#work">Skip to content</a>
+
+  <!-- NAVBAR -->
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="Home">
+      <span class="brand-mark" id="brandMark">A</span>
+      <span class="brand-text">
+        <strong id="brandName">Name</strong>
+        <small id="brandSub">DP / CINEMATOGRAPHER</small>
+      </span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#showreel">Showreel</a>
+      <a href="#work">Selected Works</a>
+      <a href="#stills">Stills</a>
+      <a href="#about">About &amp; Kit</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-outline btn-sm" href="#contact">Book for Production</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-vignette"></div>
+      <div class="letterbox top"></div>
+      <div class="letterbox bottom"></div>
+      <div class="hero-inner">
+        <p class="eyebrow" id="heroMeta"></p>
+        <h1 class="display" id="heroHeadline"></h1>
+        <p class="tagline" id="heroTagline"></p>
+        <div class="cta-row">
+          <a class="btn btn-gold" href="#showreel" id="heroShowreelBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg>
+            Watch Showreel
+          </a>
+          <a class="btn btn-outline" href="#work">View Selected Works</a>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#showreel" aria-label="Scroll down"><span></span></a>
+    </section>
+
+    <!-- WORK -->
+    <section class="section" id="work">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">Selected Films</p>
+          <h2 class="display h2">Work</h2>
+        </header>
+
+        <div id="showreel" class="showreel"></div>
+
+        <div class="filters reveal" id="filmFilters" role="tablist" aria-label="Filter films"></div>
+        <div class="grid films" id="filmGrid"></div>
+        <p class="empty" id="filmEmpty" hidden>No films in this category yet.</p>
+      </div>
+    </section>
+
+    <!-- STILLS -->
+    <section class="section section-alt" id="stills">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">Frame Grabs &amp; Lookbook</p>
+          <h2 class="display h2">Stills</h2>
+        </header>
+        <div class="filters reveal" id="stillFilters" role="tablist" aria-label="Filter stills"></div>
+        <div class="notice" id="stillNotice" hidden></div>
+        <div class="grid stills" id="stillGrid" aria-live="polite"></div>
+        <p class="empty" id="stillEmpty" hidden>No stills in this category yet.</p>
+
+        <div class="grade" id="grade">
+          <header class="section-head reveal">
+            <p class="eyebrow">Color Grading</p>
+            <h3 class="display h3">LOG vs. Final Grade</h3>
+            <p class="muted">Drag the gold viewfinder bar to compare the flat camera-original look with the finished grade.</p>
+          </header>
+          <div class="filters" id="baFrames" role="tablist" aria-label="Choose a frame"></div>
+          <div id="baMount" class="reveal"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="about-split">
+          <figure class="portrait reveal" id="portrait"></figure>
+          <div class="about-copy reveal">
+            <p class="eyebrow">About</p>
+            <h2 class="display h2" id="aboutHeading"></h2>
+            <div id="aboutBio"></div>
+            <h3 class="mini">Selected Credits</h3>
+            <ul class="credits" id="aboutCredits"></ul>
+          </div>
+        </div>
+        <div class="cards3" id="kitCards"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section section-alt" id="contact">
+      <div class="wrap contact-split">
+        <div class="reveal">
+          <p class="eyebrow">Production Inquiry</p>
+          <h2 class="display h2">Let's frame<br>your story.</h2>
+          <p class="muted lead">Tell me about the project, dates and format. I reply within 48 hours.</p>
+          <a class="mail" id="mailLink" href="#"></a>
+          <ul class="social" id="socialLinks"></ul>
+          <p class="meta" id="locationLine"></p>
+        </div>
+
+        <form class="form reveal" id="inquiryForm" novalidate>
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="row">
+            <label>Name<input name="name" type="text" required autocomplete="name"></label>
+            <label>Email<input name="email" type="email" required autocomplete="email"></label>
+          </div>
+          <div class="row">
+            <label>Project Type
+              <select name="project_type" required>
+                <option value="">Select…</option>
+                <option>Commercial</option>
+                <option>Narrative / Short Film</option>
+                <option>Feature Film</option>
+                <option>Music Video</option>
+                <option>Documentary</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label>Shoot Dates<input name="shoot_dates" type="text" placeholder="e.g. 12–15 March, flexible"></label>
+          </div>
+          <label>Project Details<textarea name="message" rows="5" required placeholder="Format, location, director, references…"></textarea></label>
+          <button class="btn btn-gold" type="submit" id="formBtn">Send Inquiry</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span id="footName"></span>
+    <span class="muted">© <span id="year"></span> · All frames © their respective owners</span>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <!-- THEATER LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Theater viewer" hidden>
+    <button class="lb-close" id="lbClose" aria-label="Close (Esc)">&times;</button>
+    <button class="lb-nav prev" id="lbPrev" aria-label="Previous">&#8592;</button>
+    <button class="lb-nav next" id="lbNext" aria-label="Next">&#8594;</button>
+    <div class="lb-stage" id="lbStage"></div>
+    <div class="lb-caption" id="lbCaption"></div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
